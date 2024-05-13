@@ -14,6 +14,7 @@
                         <tr>
                             <th>S.n</th>
                             <th>Section Name</th>
+                            <th>Total Category </th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -21,7 +22,17 @@
                         @foreach($sectionData as $key=>$section)
                             <tr>
                                 <td>{{++$key}}</td>
-                                <td>{{$section->name}}</td>
+                                <td>{{$section->name}}
+
+
+                                </td>
+                                <td>
+                                    @if($section->category->count()>0)
+                                        <span class="btn btn-sm btn-primary">{{$section->category->count()}}</span>
+                                    @else
+                                        <span class="btn btn-sm btn-danger">No Category</span>
+                                    @endif
+                                </td>
                                 <td>
                                     <a href="{{route('manage-section.edit',$section->id)}}" class="btn btn-primary">Edit</a>
                                     <form action="{{route('manage-section.destroy',$section->id)}}" method="post">
