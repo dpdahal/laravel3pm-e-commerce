@@ -56,6 +56,25 @@
             </ul>
         </li>
         <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#components-product" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-people"></i><span>Product</span><i
+                    class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="components-product" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="{{route('manage-product.create')}}">
+                        <i class="bi bi-circle"></i><span>Add</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('manage-product.index')}}">
+                        <i class="bi bi-circle"></i><span>Show</span>
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+        <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-people"></i><span>News</span><i
                     class="bi bi-chevron-down ms-auto"></i>

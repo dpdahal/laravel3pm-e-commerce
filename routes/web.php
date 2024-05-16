@@ -21,7 +21,7 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'company-backend', 'middlewa
 
     Route::resource('manage-section',"\App\Http\Controllers\Backend\Section\SectionController");
     Route::resource('manage-category',"\App\Http\Controllers\Backend\Category\CategoryController");
-
+    Route::resource('manage-product',"\App\Http\Controllers\Backend\Product\ProductController");
 
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 });
