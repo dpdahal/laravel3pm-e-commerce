@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Brand;
 use App\Models\Product;
+use App\Models\ProductImage;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -91,5 +92,28 @@ class ProductController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function addImages(Request $request,$id)
+    {
+
+        if($request->isMethod('post')){
+            if($request->hasFile('images')){
+                $files = $request->file('images');
+                foreach($files as $file){
+                    $fileName = time().$file->getClientOriginalName();
+                    $file->move(public_path('uploads/products/'),$fileName);
+                    $data['product_id'] = $id;
+                    $data['image_name'] = "/uploads/products/".$fileName;
+                    ProductImage::create($data);
+                }
+            }
+            return redirect()->back()->with('success','Images added successfully');
+
+        }else{
+            $data['productData'] = Product::find($id);
+            return view($this->pagePath . 'product.add-images', $data);
+        }
+
     }
 }

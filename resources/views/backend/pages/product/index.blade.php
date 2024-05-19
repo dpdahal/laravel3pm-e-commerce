@@ -54,6 +54,7 @@
                                     @endif
                                 </td>
                                 <td>
+                                    <a href="{{route('manage-product.add-images',$product->id)}}">Add Images</a>
                                     <a href="{{route('manage-product.edit',$product->id)}}"
                                        class="btn btn-primary btn-sm">Edit</a>
                                     <form action="{{route('manage-product.destroy',$product->id)}}" method="post"
