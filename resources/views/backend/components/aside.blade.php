@@ -89,6 +89,18 @@
 
             </ul>
         </li>
+
+
+        <li class="nav-item">
+            <a href="{{route('manage-order')}}">
+                <i class="bi bi-circle"></i><span>Order Items</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{route('logout')}}">
+                <i class="bi bi-circle"></i><span>Logout</span>
+            </a>
+        </li>
     </ul>
 
 </aside><!-- End Sidebar-->

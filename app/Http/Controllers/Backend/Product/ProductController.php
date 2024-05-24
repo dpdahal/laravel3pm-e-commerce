@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend\Product;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Brand;
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\ProductImage;
 use Illuminate\Http\Request;
@@ -115,5 +116,13 @@ class ProductController extends Controller
             return view($this->pagePath . 'product.add-images', $data);
         }
 
+    }
+
+
+    public function order()
+    {
+
+        $data['orders'] =Order::all();
+        return view($this->pagePath.'order.index',$data);
     }
 }

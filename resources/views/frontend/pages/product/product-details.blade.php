@@ -3,6 +3,11 @@
 @section('content')
     <div class="container">
         <div class="row">
+            <div class="col-md-12">
+                @include('components.messages')
+            </div>
+        </div>
+        <div class="row">
             <div class="col-md-4">
 
                 @if($product->image)
@@ -34,7 +39,7 @@
                 <p class="card-text">
                     {{$product->description}}
                 </p>
-                <a href="#" class="btn btn-primary">Add To Card </a>
+                <a href="{{route('add-to-cart',$product->id)}}" class="btn btn-primary">Add To Card </a>
             </div>
 
         </div>
