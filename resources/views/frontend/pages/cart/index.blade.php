@@ -55,6 +55,8 @@
                                 @csrf
                                 <button type="submit" class="btn btn-success">Checkout</button>
                             </form>
+
+                           <button onclick="paymentGetWay()">Pay Khalti</button>
                         </td>
                     </tr>
                     </tfoot>
@@ -62,4 +64,30 @@
 
             </div>
         </div>
+
+  <script>
+
+      function paymentGetWay(){
+          let url ="{{route('payment')}}";
+          fetch(url,{
+              method:'GET',
+              headers:{
+                  'Content-Type':'application/json',
+                  'Accept':'application/json'
+              }
+          }).then(response=>{
+              return response.json();
+          }).then(data=>{
+             let url = data.payment_url;
+                window.location.href = url;
+          }).catch(error=>{
+              console.log(error);
+          });
+
+      }
+
+
+
+  </script>
+
 @endsection

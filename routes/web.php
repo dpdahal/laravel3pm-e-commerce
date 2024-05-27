@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Backend\User\UserController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Backend\Product\ProductController;
+use App\Http\Controllers\AjaxController;
 
 
 Route::get('/', [ApplicationController::class, 'index'])->name('index');
@@ -14,6 +15,15 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 //product details
 Route::get('/product-details/{slug}', [ApplicationController::class, 'productDetails'])->name('product-details');
+Route::get('/payment', [ApplicationController::class, 'payment'])->name('payment');
+Route::get('/payment-success', [ApplicationController::class, 'paymentSuccess'])->name('payment-success');
+
+// ajax crud
+Route::get('student', [AjaxController::class, 'index'])->name('student');
+Route::get('get-student', [AjaxController::class, 'getStudents'])->name('get-student');
+Route::post('add-student', [AjaxController::class, 'addStudent'])->name('add-student');
+
+Route::post('delete-student', [AjaxController::class, 'deleteStudent'])->name('delete-student');
 
 Route::get('cart', [CartController::class, 'index'])->name('cart');
 Route::get('add-to-cart/{id}', [CartController::class, 'addToCart'])->name('add-to-cart');
